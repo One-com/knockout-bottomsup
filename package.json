@@ -1,7 +1,7 @@
 {
   "name": "knockout-bottomsup",
   "description": "A Knockout.js binding for keeping an element bound to an observable array scrolled to the bottom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/One-com/knockout-bottomsup.git"
