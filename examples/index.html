@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Knockout.bottomsUp Demo</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="vendor/prism.css">
+    </head>
+    <body>
+        <div class="demo">
+            <div>
+                <h1>Infinitely growing list</h1>
+
+                <div class="source">
+                    <pre>
+                        <code class="language-markup">
+&lt;ul data-bind="foreach: items, bottomsUp: true">
+    &lt;li data-bind="text: $data">&lt;/li>
+&lt;/ul></code>
+                    </pre>
+                    <pre>
+                        <code class="language-javascript">
+var viewModel = { items: ko.observableArray() },
+    i = 1;
+ko.applyBindings(viewModel);
+setInterval(function () {
+    viewModel.items.push('foo ' + i++);
+}, 1000);</code>
+                    </pre>
+                </div>
+
+                <ul data-bind="foreach: infinitelyGrowing, bottomsUp: true">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+
+            <div>
+                <h1>Infinitely growing list trimmed down to 10 items while scrolled to the bottom</h1>
+
+                <div class="source">
+                    <pre>
+                        <code class="language-markup">
+&lt;ul data-bind="foreach: items, bottomsUp: { trim: 10 }">
+    &lt;li data-bind="text: $data">&lt;/li>
+&lt;/ul></code>
+                    </pre>
+                    <pre>
+                        <code class="language-javascript">
+var viewModel = { items: ko.observableArray() },
+    i = 1;
+ko.applyBindings(viewModel);
+setInterval(function () {
+    viewModel.items.push('foo ' + i++);
+}, 1000);</code>
+                    </pre>
+                </div>
+
+                <ul data-bind="foreach: trimmed, bottomsUp: {trim: 10}">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="https://github.com/One-com/knockout-bottomsup"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+        <script src="vendor/jquery-2.1.1.js"></script>
+        <script src="vendor/knockout-3.1.0.js"></script>
+        <script src="vendor/prism.js"></script>
+        <script src="../lib/knockout.bottomsUp.js"></script>
+        <script>
+            var viewModel = {
+                infinitelyGrowing: ko.observableArray(),
+                trimmed: ko.observableArray()
+            };
+            ko.applyBindings(viewModel);
+            var i = 1;
+            setInterval(function () {
+                var bogusText = 'foo ' + i++;
+                viewModel.infinitelyGrowing.push(bogusText);
+                viewModel.trimmed.push(bogusText);
+            }, 1000);
+        </script>
+    </body>
+</html>

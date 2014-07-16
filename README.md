@@ -1,5 +1,7 @@
 A Knockout.js binding for keeping an element bound to an observable array scrolled to the bottom.
 
+[Click here to see an example](http://one-com.github.io/knockout-bottomsup/examples/)
+
 Usage:
 
 ```html
