@@ -21,3 +21,7 @@ If you want to prune the array while the element is scrolled to the bottom, use 
 ```
 
 This is useful for logs that you don't want to grow infinitely.
+
+## License
+
+Knockout.dragdrop is licensed under a standard 3-clause BSD license -- see the `LICENSE` file for details.
